@@ -1,10 +1,16 @@
-import "./App.css";
-import logo from "./logo.png";
+import './App.css';
+import Mockman from 'mockman-js';
+import Home from './pages/home/Home';
+import Explore from './pages/Explore';
+import Bookmark from './pages/Bookmark';
+import Login from './pages/login/Login';
+
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} alt="mockBee logo" width="180" height="180" />
         <h1 className="brand-title">
           Welcome to <span>mockBee!</span>
@@ -35,7 +41,14 @@ function App() {
             Contribute
           </a>
         </div>
-      </header>
+      </header> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/bookmark" element={<Bookmark />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/mockman" element={<Mockman />} />
+      </Routes>
     </div>
   );
 }
