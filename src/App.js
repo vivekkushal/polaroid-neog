@@ -4,7 +4,6 @@ import Home from './pages/home/Home';
 import Explore from './pages/Explore';
 import Bookmark from './pages/Bookmark';
 import Login from './pages/login/Login';
-import Signup from './pages/signup/Signup';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -48,7 +47,6 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/bookmark" element={<Bookmark />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </div>
