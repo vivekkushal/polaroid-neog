@@ -1,26 +1,28 @@
-import './Login.scss';
+import './Signup.scss';
 import { Link } from 'react-router-dom';
 
-function Login() {
+function Signup() {
   return (
-    <div className="login">
+    <div className="signup">
       <div className="card">
         <div className="left">
           <h3>Welcome to</h3>
           <h1>Polaroid</h1>
           <div>
-            <span>Don't have an account?</span>
-            <Link to="/signup">
-              <button>Signup</button>
+            <span>Do you have an account?</span>
+            <Link to="/login">
+              <button>Login</button>
             </Link>
           </div>
         </div>
         <div className="right">
-          <h1>Login</h1>
+          <h1>Signup</h1>
           <form>
+            <input type="text" placeholder="Name" />
             <input type="text" placeholder="Username" />
+            <input type="email" placeholder="Email" />
             <input type="password" placeholder="Password" />
-            <button>Login</button>
+            <button>Signup</button>
           </form>
         </div>
       </div>
@@ -28,4 +30,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
