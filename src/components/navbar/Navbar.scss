@@ -1,0 +1,61 @@
+@import '../../index.scss';
+
+.navbar {
+  @include modify($modes) {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid moded('border');
+    color: moded('color');
+    justify-content: space-between;
+    background-color: moded('background-navbar');
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 5rem;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+
+    .left {
+      span {
+        display: flex;
+        align-items: center;
+      }
+      img {
+        height: 55px;
+        width: 55px;
+      }
+      h1 {
+        font-size: 2.5rem;
+        color: moded('logo');
+      }
+    }
+
+    .middle {
+      display: flex;
+      align-items: center;
+      border: 1px solid moded('border');
+      border-radius: 5px;
+      gap: 10px;
+      padding: 5px;
+      input {
+        background: none;
+        border: none;
+        color: moded('color');
+        font-size: 16px;
+        height: 25px;
+        width: 400px;
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  }
+}

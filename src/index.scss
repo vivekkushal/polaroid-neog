@@ -1,8 +1,8 @@
 :root {
   /* dark shades of primary color*/
-  --clr-primary-1: rgb(15 23 42);
-  --clr-primary-2: rgb(23, 37, 84);
-  --clr-primary-12: rgb(30, 41, 59);
+  --clr-primary-1: hsl(222, 47%, 11%);
+  --clr-primary-2: hsl(226, 57%, 21%);
+  --clr-primary-12: hsl(217, 33%, 17%);
   --clr-primary-3: rgb(121, 87, 68);
   --clr-primary-4: rgb(147, 106, 83);
   /* primary/main color */
@@ -15,6 +15,8 @@
   --clr-primary-10: hsl(22, 31%, 88%);
   /* mine */
   --clr-primary-11: hsl(271, 68%, 32%);
+  --clr-primary-13: hsl(174, 79%, 43%);
+  --clr-primary-14: hsl(180, 46%, 95%);
   /* darkest grey - used for headings */
   --clr-grey-1: hsl(209, 61%, 16%);
   --clr-grey-2: hsl(211, 39%, 23%);
@@ -68,4 +70,46 @@ body {
   color: var(--clr-grey-7);
   line-height: 1.5;
   font-size: 0.875rem; */
+}
+
+$modes: (
+  light: (
+    color: var(--clr-black),
+    logo: var(--clr-primary-13),
+    background-color-main: var(--clr-grey-10),
+    background-color-soft: var(--clr-grey-9),
+    background-navbar: var(--clr-primary-14),
+    border: var(--clr-grey-3),
+  ),
+  dark: (
+    color: var(--clr-text-1),
+    logo: var(--clr-primary-13),
+    background-color-main: var(--clr-primary-1),
+    background-color-soft: var(--clr-primary-12),
+    background-navbar: var(--clr-primary-2),
+    border: var(--clr-grey-7),
+  ),
+);
+
+@mixin modify($modes) {
+  @each $mode, $map in $modes {
+    .#{$mode} & {
+      $mode-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($modes, $mode), '#{$key}');
+        $mode-map: map-merge(
+          $mode-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $mode-map: null !global;
+    }
+  }
+}
+
+@function moded($key) {
+  @return map-get($mode-map, $key);
 }

@@ -1,24 +1,22 @@
-import './Home.scss';
+import './ProfilePage.scss';
 import Navbar from '../../components/navbar/Navbar';
 import LeftSidebar from '../../components/leftSidebar/LeftSidebar';
-import Main from '../../components/main/Main';
-import RightSidebar from '../../components/rightSidebar/RightSidebar';
+import Profile from '../../components/profile/Profile';
 import { useContext } from 'react';
 import { ModeContext } from '../../contexts/ModeContext';
 
-function Home() {
+function ProfilePage() {
   const { mode } = useContext(ModeContext);
 
   return (
     <div className={mode}>
       <Navbar />
-      <div className="home">
+      <div className="profile-page">
         <LeftSidebar />
-        <Main />
-        <RightSidebar />
+        <Profile />
       </div>
     </div>
   );
 }
 
-export default Home;
+export default ProfilePage;

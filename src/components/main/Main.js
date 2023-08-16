@@ -1,4 +1,4 @@
-import './Main.css';
+import './Main.scss';
 import Post from '../post/Post';
 
 function Main() {

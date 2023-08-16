@@ -1,0 +1,17 @@
+@import '../../index.scss';
+
+.main {
+  @include modify($modes) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: moded('background-color-main');
+    width: 55%;
+
+    /* .main-create-post {
+  }
+
+  .main-posts {
+  } */
+  }
+}

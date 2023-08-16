@@ -5,10 +5,23 @@ import Explore from './pages/Explore';
 import Bookmark from './pages/Bookmark';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
+import ProfilePage from './pages/profilePage/ProfilePage';
+import { AuthContext } from './contexts/AuthContext';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useContext } from 'react';
 
 function App() {
+  const { user } = useContext(AuthContext);
+
+  const ProtectedRoute = ({ children }) => {
+    if (!user) {
+      return <Navigate to="/login" />;
+    } else {
+      return children;
+    }
+  };
+
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -44,9 +57,31 @@ function App() {
         </div>
       </header> */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/bookmark" element={<Bookmark />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/profile/:userId" element={<ProfilePage />} />
+        <Route
+          path="/explore"
+          element={
+            <ProtectedRoute>
+              <Explore />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/bookmark"
+          element={
+            <ProtectedRoute>
+              <Bookmark />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/mockman" element={<Mockman />} />

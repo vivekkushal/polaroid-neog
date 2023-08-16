@@ -1,4 +1,4 @@
-import './Post.css';
+import './Post.scss';
 import { Avatar } from '@mui/material';
 import { MdMoreHoriz } from 'react-icons/md';
 import { FaRegHeart, FaRegCommentAlt, FaRegBookmark } from 'react-icons/fa';
